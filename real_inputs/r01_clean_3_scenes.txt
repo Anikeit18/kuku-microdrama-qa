@@ -1,0 +1,17 @@
+TITLE: r01_clean_3_scenes (real AI clips from microsoft/AVGen-Bench)
+
+SCENE 1 | MOVIE TRAILER: SECOND TAKE | 00:00.00 - 00:08.00
+PROMPT (Veo_3.1_quality): Four-shot mockumentary teaser with on-set chatter and abrupt cuts. Shot 1: A film set; a clapperboard snaps loudly and someone says, "Action—no, wait, not yet." Shot 2: Close-up of a boom mic dipping into frame; the operator whispers, "Sorry," as the director sighs. Shot 3: Smash cut to an interview chair; the subject clears their throat into the mic, then says, "I was misquoted," while crew membe
+[00:00.00 - 00:04.77] SPEAKER: Action—no, wait, not yet.
+[00:04.77 - 00:05.58] SPEAKER: Sorry,
+[00:05.58 - 00:08.00] SPEAKER: I was misquoted,
+
+SCENE 2 | MOVIE TRAILER: SALTWATER VOWS | 00:08.00 - 00:16.00
+PROMPT (Veo_3.1_quality): Four-shot emotional teaser with natural ambience and a musical swell. Shot 1: A windswept seaside pier at golden hour, waves rolling and gulls calling as two people stand in silence; one says softly, "I came back." Shot 2: Cut to a kitchen morning scene; a kettle clicks off and steam hisses as hands brush accidentally, and the second person laughs under their breath. Shot 3: Smash cut to an argume
+[00:08.00 - 00:12.52] SPEAKER: I came back.
+[00:12.52 - 00:15.58] SPEAKER: You promised me forever.
+
+SCENE 3 | MOVIE TRAILER: HONEY ON THE TONGUE | 00:16.00 - 00:24.00
+PROMPT (Veo_3.1_quality): Four-shot warm teaser with cooking foley and flirtatious dialogue. Shot 1: A small bakery at dawn; dough slaps the counter and a mixer hums as someone says, "You’re early." Shot 2: Close-up of honey drizzling onto a pastry; it threads down with a sticky sheen while a kettle steams softly in the background. Shot 3: Smash cut to a busy service rush; plates clink, tickets rip, and a chef calls, "Two 
+[00:16.00 - 00:20.83] SPEAKER: You’re early.
+[00:20.83 - 00:24.00] SPEAKER: Two out!

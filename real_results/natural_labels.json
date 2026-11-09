@@ -1,0 +1,10 @@
+{
+  "_how_to": "Faults seen by watching the real clips (2026-11-08). Copy this file to real_inputs/natural_labels.json, then run tests/evaluate.py. Deliberate dips to black (r08 ~6.4 s, r10 ~5.8 s) were checked and are NOT faults.",
+  "r01_clean_3_scenes": [
+    {"check": "lip_sync", "start": 0.0, "end": 8.0, "note": "lips don't match speech (Veo output, not injected)"},
+    {"check": "lip_sync", "start": 16.0, "end": 24.0, "note": "lips don't match speech (Veo output, not injected)"}
+  ],
+  "r02_black_frames": [], "r03_frozen_picture": [], "r04_silence_over_dialogue": [], "r05_clipped_audio": [],
+  "r06_av_offset_300ms": [], "r07_wrong_audio_track": [], "r08_regenerated_second_half": [],
+  "r09_regenerated_insert_shot": [], "r10_weaker_model_untouched": []
+}

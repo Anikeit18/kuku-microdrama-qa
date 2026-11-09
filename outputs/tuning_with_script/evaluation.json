@@ -1,0 +1,126 @@
+{
+  "label": "tuning_with_script",
+  "per_check_recall": {
+    "black_frames": {
+      "flagged_any_severity": "2/2",
+      "flagged_major_or_blocker": "2/2"
+    },
+    "frozen_picture": {
+      "flagged_any_severity": "1/1",
+      "flagged_major_or_blocker": "1/1"
+    },
+    "silence": {
+      "flagged_any_severity": "2/2",
+      "flagged_major_or_blocker": "2/2"
+    },
+    "distorted_audio": {
+      "flagged_any_severity": "1/1",
+      "flagged_major_or_blocker": "1/1"
+    },
+    "lip_sync": {
+      "flagged_any_severity": "2/2",
+      "flagged_major_or_blocker": "2/2"
+    },
+    "outfit_change": {
+      "flagged_any_severity": "2/2",
+      "flagged_major_or_blocker": "2/2"
+    },
+    "background_change": {
+      "flagged_any_severity": "2/2",
+      "flagged_major_or_blocker": "2/2"
+    }
+  },
+  "faults_caught": "12/12",
+  "faults_caught_major_plus": "12/12",
+  "false_alarms_total": 0,
+  "variants": [
+    {
+      "variant": "01_clean",
+      "verdict": "PASS",
+      "faults": 0,
+      "caught": 0,
+      "false_alarms": 0,
+      "false_alarm_list": []
+    },
+    {
+      "variant": "02_black_frames",
+      "verdict": "FAIL",
+      "faults": 1,
+      "caught": 1,
+      "false_alarms": 0,
+      "false_alarm_list": []
+    },
+    {
+      "variant": "03_frozen_picture",
+      "verdict": "FAIL",
+      "faults": 1,
+      "caught": 1,
+      "false_alarms": 0,
+      "false_alarm_list": []
+    },
+    {
+      "variant": "04_silence_over_dialogue",
+      "verdict": "FAIL",
+      "faults": 1,
+      "caught": 1,
+      "false_alarms": 0,
+      "false_alarm_list": []
+    },
+    {
+      "variant": "05_clipped_audio",
+      "verdict": "REVIEW",
+      "faults": 1,
+      "caught": 1,
+      "false_alarms": 0,
+      "false_alarm_list": []
+    },
+    {
+      "variant": "06_av_offset_400ms",
+      "verdict": "FAIL",
+      "faults": 1,
+      "caught": 1,
+      "false_alarms": 0,
+      "false_alarm_list": []
+    },
+    {
+      "variant": "07_outfit_change",
+      "verdict": "REVIEW",
+      "faults": 1,
+      "caught": 1,
+      "false_alarms": 0,
+      "false_alarm_list": []
+    },
+    {
+      "variant": "08_background_glitch_shot",
+      "verdict": "REVIEW",
+      "faults": 1,
+      "caught": 1,
+      "false_alarms": 0,
+      "false_alarm_list": []
+    },
+    {
+      "variant": "09_background_switch",
+      "verdict": "REVIEW",
+      "faults": 1,
+      "caught": 1,
+      "false_alarms": 0,
+      "false_alarm_list": []
+    },
+    {
+      "variant": "10_mouth_not_moving",
+      "verdict": "REVIEW",
+      "faults": 1,
+      "caught": 1,
+      "false_alarms": 0,
+      "false_alarm_list": []
+    },
+    {
+      "variant": "11_combo",
+      "verdict": "FAIL",
+      "faults": 3,
+      "caught": 3,
+      "false_alarms": 0,
+      "false_alarm_list": []
+    }
+  ]
+}

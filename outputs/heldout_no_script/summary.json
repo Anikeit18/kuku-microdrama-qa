@@ -1,0 +1,90 @@
+[
+  {
+    "video": "h01_clean",
+    "verdict": "PASS",
+    "blocker": 0,
+    "major": 0,
+    "minor": 2,
+    "info": 0
+  },
+  {
+    "video": "h02_short_black_0.25s",
+    "verdict": "REVIEW",
+    "blocker": 0,
+    "major": 1,
+    "minor": 2,
+    "info": 0
+  },
+  {
+    "video": "h03_freeze_1.0s",
+    "verdict": "REVIEW",
+    "blocker": 0,
+    "major": 1,
+    "minor": 2,
+    "info": 0
+  },
+  {
+    "video": "h04_silence_1.5s",
+    "verdict": "PASS",
+    "blocker": 0,
+    "major": 0,
+    "minor": 3,
+    "info": 0
+  },
+  {
+    "video": "h05_mild_clipping",
+    "verdict": "PASS",
+    "blocker": 0,
+    "major": 0,
+    "minor": 3,
+    "info": 0
+  },
+  {
+    "video": "h06_av_offset_250ms",
+    "verdict": "FAIL",
+    "blocker": 1,
+    "major": 0,
+    "minor": 2,
+    "info": 0
+  },
+  {
+    "video": "h07_audio_early_300ms",
+    "verdict": "FAIL",
+    "blocker": 1,
+    "major": 0,
+    "minor": 2,
+    "info": 0
+  },
+  {
+    "video": "h08_outfit_change_rooftop",
+    "verdict": "REVIEW",
+    "blocker": 0,
+    "major": 1,
+    "minor": 2,
+    "info": 0
+  },
+  {
+    "video": "h09_ryan_outfit_change",
+    "verdict": "PASS",
+    "blocker": 0,
+    "major": 0,
+    "minor": 2,
+    "info": 0
+  },
+  {
+    "video": "h10_background_glitch_office",
+    "verdict": "PASS",
+    "blocker": 0,
+    "major": 0,
+    "minor": 2,
+    "info": 0
+  },
+  {
+    "video": "h11_mouth_static_rooftop",
+    "verdict": "REVIEW",
+    "blocker": 0,
+    "major": 1,
+    "minor": 2,
+    "info": 0
+  }
+]

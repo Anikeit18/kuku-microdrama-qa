@@ -1,0 +1,5 @@
+TITLE: r10_weaker_model_untouched (real AI clips from microsoft/AVGen-Bench)
+
+SCENE 1 | MOVIE TRAILER: MIDNIGHT LAUGH TRACK | 00:00.00 - 00:10.04
+PROMPT (LTX-2): Four-shot teaser with camcorder realism and audio glitches. Shot 1: Grainy handheld footage in a living room, air conditioner hum and soft tape hiss; a TV plays faint sitcom laughter off-screen while someone points the camera at a dark doorway. Shot 2: A flashlight beam sweeps across family photos; the camera bumps a frame, making a glassy clink, and the laughter on the TV warps and slows unnatura
+[00:00.00 - 00:08.64] SPEAKER: Did you hear them?

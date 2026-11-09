@@ -1,0 +1,109 @@
+{
+  "video": "real_inputs\\r06_av_offset_300ms.mp4",
+  "script": "real_inputs\\r06_av_offset_300ms.txt",
+  "verdict": "REVIEW",
+  "counts": {
+    "blocker": 0,
+    "major": 2,
+    "minor": 0,
+    "info": 0
+  },
+  "media": {
+    "duration": 8.0,
+    "has_video": true,
+    "has_audio": true,
+    "fps": 25.0,
+    "width": 1280,
+    "height": 720,
+    "audio_rate": 48000,
+    "av_start_offset": 0.0
+  },
+  "face_detector": "yunet+mediapipe_crop",
+  "face_frame_share": 1.0,
+  "shots": [
+    {
+      "start": 0.0,
+      "end": 8.0
+    }
+  ],
+  "issues": [
+    {
+      "check": "lip_sync",
+      "start": 0.0,
+      "end": 4.77,
+      "severity": "major",
+      "confidence": "low",
+      "frame_time": 2.38,
+      "detail": "mouth movement doesn't follow SPEAKER speech (best correlation -0.09)",
+      "id": 1
+    },
+    {
+      "check": "lip_sync",
+      "start": 5.58,
+      "end": 8.0,
+      "severity": "major",
+      "confidence": "low",
+      "frame_time": 6.79,
+      "detail": "mouth movement doesn't follow SPEAKER speech (best correlation 0.05)",
+      "id": 2
+    }
+  ],
+  "lip_sync_windows": [
+    {
+      "start": 0.0,
+      "end": 4.77,
+      "speaker": "SPEAKER",
+      "face_coverage": 0.9,
+      "r_at_0": -0.26,
+      "best_r": -0.09,
+      "best_lag_ms": 480,
+      "status": "no_match"
+    },
+    {
+      "start": 5.58,
+      "end": 8.0,
+      "speaker": "SPEAKER",
+      "face_coverage": 0.74,
+      "r_at_0": 0.05,
+      "best_r": 0.05,
+      "best_lag_ms": 0,
+      "status": "no_match"
+    }
+  ],
+  "runtime_s": 14.9,
+  "config": {
+    "analysis_short_side": 480,
+    "black_min_dur": 0.1,
+    "black_pix_th": 0.1,
+    "black_blocker_dur": 0.3,
+    "freeze_noise_db": -72,
+    "freeze_min_dur": 0.8,
+    "freeze_blocker_dur": 1.5,
+    "silence_db": -50,
+    "silence_min_dur": 1.0,
+    "silence_no_script_major": 3.0,
+    "clip_level": 0.95,
+    "clip_ratio": 0.005,
+    "clip_merge_gap": 0.5,
+    "clip_min_dur": 0.3,
+    "spike_db": 10,
+    "cut_threshold": 0.45,
+    "min_shot_dur": 0.4,
+    "bg_cluster_dist": 0.35,
+    "torso_cluster_dist": 0.5,
+    "torso_min_face_h": 0.1,
+    "torso_min_samples": 2,
+    "min_face_frac": 0.004,
+    "glitch_max_dur": 6.0,
+    "dark_shot_v": 30,
+    "lip_min_window": 1.5,
+    "lip_min_face_cov": 0.6,
+    "lip_max_lag": 0.5,
+    "lip_min_corr": 0.3,
+    "lip_offset_flag": 0.2,
+    "lip_static_std": 0.004,
+    "script_tol": 0.75,
+    "llm_provider": null,
+    "llm_model": null
+  }
+}

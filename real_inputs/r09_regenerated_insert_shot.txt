@@ -1,0 +1,6 @@
+TITLE: r09_regenerated_insert_shot (real AI clips from microsoft/AVGen-Bench)
+
+SCENE 1 | MOVIE TRAILER: TIDELINE EVIDENCE | 00:00.00 - 00:08.00
+PROMPT (Veo_3.1_quality): Four-shot gritty teaser with sea ambience and forensic sounds. Shot 1: A foggy beach at dawn; waves roll and gulls cry as a detective says, "It washed in overnight." Shot 2: Close-up of a gloved hand placing an evidence marker; the plastic clicks on wet sand while a camera shutter snaps. Shot 3: Smash cut to an interrogation room; a chair scrapes back, a recorder clicks on, and a suspect mutters, 
+[00:00.00 - 00:02.87] SPEAKER: It washed in overnight.
+[00:02.87 - 00:07.24] SPEAKER: You don’t know who you’re chasing.

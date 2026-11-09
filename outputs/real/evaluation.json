@@ -1,0 +1,131 @@
+{
+  "label": "real",
+  "per_check_recall": {
+    "lip_sync": {
+      "flagged_any_severity": "3/4",
+      "flagged_major_or_blocker": "2/4"
+    },
+    "black_frames": {
+      "flagged_any_severity": "1/1",
+      "flagged_major_or_blocker": "1/1"
+    },
+    "frozen_picture": {
+      "flagged_any_severity": "1/1",
+      "flagged_major_or_blocker": "1/1"
+    },
+    "silence": {
+      "flagged_any_severity": "1/1",
+      "flagged_major_or_blocker": "1/1"
+    },
+    "distorted_audio": {
+      "flagged_any_severity": "1/1",
+      "flagged_major_or_blocker": "1/1"
+    },
+    "outfit_change/background_change": {
+      "flagged_any_severity": "2/2",
+      "flagged_major_or_blocker": "2/2"
+    }
+  },
+  "faults_caught": "9/10",
+  "faults_caught_major_plus": "8/10",
+  "false_alarms_total": 9,
+  "variants": [
+    {
+      "variant": "r01_clean_3_scenes",
+      "verdict": "REVIEW",
+      "faults": 2,
+      "caught": 2,
+      "false_alarms": 2,
+      "false_alarm_list": [
+        "outfit_change@4.32s (major)",
+        "background_change@12.72s (major)"
+      ]
+    },
+    {
+      "variant": "r02_black_frames",
+      "verdict": "FAIL",
+      "faults": 1,
+      "caught": 1,
+      "false_alarms": 1,
+      "false_alarm_list": [
+        "background_change@4.52s (major)"
+      ]
+    },
+    {
+      "variant": "r03_frozen_picture",
+      "verdict": "FAIL",
+      "faults": 1,
+      "caught": 1,
+      "false_alarms": 1,
+      "false_alarm_list": [
+        "lip_sync@4.65s (minor)"
+      ]
+    },
+    {
+      "variant": "r04_silence_over_dialogue",
+      "verdict": "FAIL",
+      "faults": 1,
+      "caught": 1,
+      "false_alarms": 0,
+      "false_alarm_list": []
+    },
+    {
+      "variant": "r05_clipped_audio",
+      "verdict": "REVIEW",
+      "faults": 1,
+      "caught": 1,
+      "false_alarms": 1,
+      "false_alarm_list": [
+        "background_change@2.08s (major)"
+      ]
+    },
+    {
+      "variant": "r06_av_offset_300ms",
+      "verdict": "REVIEW",
+      "faults": 1,
+      "caught": 1,
+      "false_alarms": 0,
+      "false_alarm_list": []
+    },
+    {
+      "variant": "r07_wrong_audio_track",
+      "verdict": "REVIEW",
+      "faults": 1,
+      "caught": 0,
+      "false_alarms": 1,
+      "false_alarm_list": [
+        "background_change@2.64s (major)"
+      ]
+    },
+    {
+      "variant": "r08_regenerated_second_half",
+      "verdict": "FAIL",
+      "faults": 1,
+      "caught": 1,
+      "false_alarms": 1,
+      "false_alarm_list": [
+        "black_frames@6.36s (blocker)"
+      ]
+    },
+    {
+      "variant": "r09_regenerated_insert_shot",
+      "verdict": "REVIEW",
+      "faults": 1,
+      "caught": 1,
+      "false_alarms": 1,
+      "false_alarm_list": [
+        "lip_sync@0.0s (minor)"
+      ]
+    },
+    {
+      "variant": "r10_weaker_model_untouched",
+      "verdict": "PASS",
+      "faults": 0,
+      "caught": 0,
+      "false_alarms": 1,
+      "false_alarm_list": [
+        "black_frames@5.84s (minor)"
+      ]
+    }
+  ]
+}

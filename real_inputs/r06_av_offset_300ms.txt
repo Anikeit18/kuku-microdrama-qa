@@ -1,0 +1,7 @@
+TITLE: r06_av_offset_300ms (real AI clips from microsoft/AVGen-Bench)
+
+SCENE 1 | MOVIE TRAILER: SECOND TAKE | 00:00.00 - 00:08.00
+PROMPT (Veo_3.1_quality): Four-shot mockumentary teaser with on-set chatter and abrupt cuts. Shot 1: A film set; a clapperboard snaps loudly and someone says, "Action—no, wait, not yet." Shot 2: Close-up of a boom mic dipping into frame; the operator whispers, "Sorry," as the director sighs. Shot 3: Smash cut to an interview chair; the subject clears their throat into the mic, then says, "I was misquoted," while crew membe
+[00:00.00 - 00:04.77] SPEAKER: Action—no, wait, not yet.
+[00:04.77 - 00:05.58] SPEAKER: Sorry,
+[00:05.58 - 00:08.00] SPEAKER: I was misquoted,

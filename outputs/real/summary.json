@@ -1,0 +1,82 @@
+[
+  {
+    "video": "r01_clean_3_scenes",
+    "verdict": "REVIEW",
+    "blocker": 0,
+    "major": 3,
+    "minor": 1,
+    "info": 0
+  },
+  {
+    "video": "r02_black_frames",
+    "verdict": "FAIL",
+    "blocker": 1,
+    "major": 1,
+    "minor": 0,
+    "info": 0
+  },
+  {
+    "video": "r03_frozen_picture",
+    "verdict": "FAIL",
+    "blocker": 1,
+    "major": 0,
+    "minor": 1,
+    "info": 0
+  },
+  {
+    "video": "r04_silence_over_dialogue",
+    "verdict": "FAIL",
+    "blocker": 1,
+    "major": 0,
+    "minor": 0,
+    "info": 0
+  },
+  {
+    "video": "r05_clipped_audio",
+    "verdict": "REVIEW",
+    "blocker": 0,
+    "major": 3,
+    "minor": 0,
+    "info": 0
+  },
+  {
+    "video": "r06_av_offset_300ms",
+    "verdict": "REVIEW",
+    "blocker": 0,
+    "major": 2,
+    "minor": 0,
+    "info": 0
+  },
+  {
+    "video": "r07_wrong_audio_track",
+    "verdict": "REVIEW",
+    "blocker": 0,
+    "major": 1,
+    "minor": 0,
+    "info": 0
+  },
+  {
+    "video": "r08_regenerated_second_half",
+    "verdict": "FAIL",
+    "blocker": 1,
+    "major": 1,
+    "minor": 0,
+    "info": 0
+  },
+  {
+    "video": "r09_regenerated_insert_shot",
+    "verdict": "REVIEW",
+    "blocker": 0,
+    "major": 1,
+    "minor": 1,
+    "info": 0
+  },
+  {
+    "video": "r10_weaker_model_untouched",
+    "verdict": "PASS",
+    "blocker": 0,
+    "major": 0,
+    "minor": 1,
+    "info": 0
+  }
+]

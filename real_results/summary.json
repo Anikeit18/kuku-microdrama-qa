@@ -1,0 +1,116 @@
+{
+  "source": "microsoft/AVGen-Bench (MIT): Veo 3.1, Sora 2, LTX-2 outputs with native speech",
+  "run": "user's Windows machine, 2026-11-08, face detector yunet+mediapipe_crop",
+  "episodes": 10,
+  "faults_total": 10,
+  "faults_flagged_any": 9,
+  "faults_flagged_major_plus": 8,
+  "false_alarms": 9,
+  "false_alarms_major_plus": 6,
+  "per_fault": [
+    {
+      "fault": "Black frames (injected 0.5 s)",
+      "result": "caught (blocker)",
+      "episode": "r02"
+    },
+    {
+      "fault": "Frozen picture (injected 1.5 s)",
+      "result": "caught (blocker)",
+      "episode": "r03"
+    },
+    {
+      "fault": "Silence over dialogue (injected 1.5 s)",
+      "result": "caught (blocker)",
+      "episode": "r04"
+    },
+    {
+      "fault": "Clipped audio (injected)",
+      "result": "caught (major)",
+      "episode": "r05"
+    },
+    {
+      "fault": "A/V offset 300 ms (injected)",
+      "result": "caught (major)",
+      "episode": "r06"
+    },
+    {
+      "fault": "Wrong audio track (injected)",
+      "result": "MISSED: mouth could not be measured on these faces",
+      "episode": "r07"
+    },
+    {
+      "fault": "Regenerated second half: other model, same prompt (real renders)",
+      "result": "caught (major)",
+      "episode": "r08"
+    },
+    {
+      "fault": "Regenerated 2 s insert shot (real renders)",
+      "result": "caught (major)",
+      "episode": "r09"
+    },
+    {
+      "fault": "Lip-sync mismatch in Veo output, found by the tool, confirmed by watching",
+      "result": "caught (minor)",
+      "episode": "r01 @0 s"
+    },
+    {
+      "fault": "Lip-sync mismatch in Veo output, found by the tool, confirmed by watching",
+      "result": "caught (major)",
+      "episode": "r01 @16 s"
+    }
+  ],
+  "false_alarm_breakdown": [
+    {
+      "what": "background_change on trailer clips whose single prompt covers several shots/places",
+      "count": 4,
+      "severity": "major"
+    },
+    {
+      "what": "outfit_change",
+      "count": 1,
+      "severity": "major"
+    },
+    {
+      "what": "deliberate dip to black not marked in the prompt-derived script",
+      "count": 2,
+      "severity": "1 blocker, 1 minor"
+    },
+    {
+      "what": "weak lip-sync mismatch",
+      "count": 2,
+      "severity": "minor"
+    }
+  ],
+  "progression": [
+    {
+      "step": "MediaPipe only, frames 360 px wide",
+      "faces_in_frames": "almost none",
+      "false_alarms": 9,
+      "lip_faults_caught": "0/2 injected"
+    },
+    {
+      "step": "MediaPipe only, frames 480 px on short side",
+      "faces_in_frames": "0-37%",
+      "false_alarms": 10,
+      "lip_faults_caught": "0/2 injected"
+    },
+    {
+      "step": "YuNet finds faces, MediaPipe on face crop",
+      "faces_in_frames": "14-100%",
+      "false_alarms": 26,
+      "lip_faults_caught": "1/2 injected"
+    },
+    {
+      "step": "outfit judged on main face only, must persist, 1 flag/scene",
+      "faces_in_frames": "14-100%",
+      "false_alarms": 11,
+      "lip_faults_caught": "1/2 injected"
+    },
+    {
+      "step": "after watching: 2 flags confirmed as real Veo lip-sync faults",
+      "faces_in_frames": "14-100%",
+      "false_alarms": 9,
+      "lip_faults_caught": "1/2 injected + 2/2 natural"
+    }
+  ]
+}

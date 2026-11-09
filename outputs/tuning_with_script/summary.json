@@ -1,0 +1,90 @@
+[
+  {
+    "video": "01_clean",
+    "verdict": "PASS",
+    "blocker": 0,
+    "major": 0,
+    "minor": 0,
+    "info": 2
+  },
+  {
+    "video": "02_black_frames",
+    "verdict": "FAIL",
+    "blocker": 1,
+    "major": 0,
+    "minor": 0,
+    "info": 2
+  },
+  {
+    "video": "03_frozen_picture",
+    "verdict": "FAIL",
+    "blocker": 1,
+    "major": 0,
+    "minor": 0,
+    "info": 2
+  },
+  {
+    "video": "04_silence_over_dialogue",
+    "verdict": "FAIL",
+    "blocker": 1,
+    "major": 0,
+    "minor": 0,
+    "info": 2
+  },
+  {
+    "video": "05_clipped_audio",
+    "verdict": "REVIEW",
+    "blocker": 0,
+    "major": 1,
+    "minor": 0,
+    "info": 2
+  },
+  {
+    "video": "06_av_offset_400ms",
+    "verdict": "FAIL",
+    "blocker": 1,
+    "major": 0,
+    "minor": 0,
+    "info": 2
+  },
+  {
+    "video": "07_outfit_change",
+    "verdict": "REVIEW",
+    "blocker": 0,
+    "major": 1,
+    "minor": 0,
+    "info": 2
+  },
+  {
+    "video": "08_background_glitch_shot",
+    "verdict": "REVIEW",
+    "blocker": 0,
+    "major": 1,
+    "minor": 0,
+    "info": 2
+  },
+  {
+    "video": "09_background_switch",
+    "verdict": "REVIEW",
+    "blocker": 0,
+    "major": 1,
+    "minor": 0,
+    "info": 2
+  },
+  {
+    "video": "10_mouth_not_moving",
+    "verdict": "REVIEW",
+    "blocker": 0,
+    "major": 1,
+    "minor": 0,
+    "info": 2
+  },
+  {
+    "video": "11_combo",
+    "verdict": "FAIL",
+    "blocker": 2,
+    "major": 1,
+    "minor": 0,
+    "info": 2
+  }
+]

@@ -1,0 +1,136 @@
+{
+  "dataset": "https://huggingface.co/datasets/microsoft/AVGen-Bench",
+  "license": "MIT",
+  "episodes": [
+    {
+      "episode": "r01_clean_3_scenes",
+      "note": "no injection; control for false alarms",
+      "clips": [
+        {
+          "model": "Veo_3.1_quality",
+          "content": "SECOND TAKE",
+          "hf_path": "Veo_3.1_quality/movie_trailer/SECOND TAKE.mp4"
+        },
+        {
+          "model": "Veo_3.1_quality",
+          "content": "SALTWATER VOWS",
+          "hf_path": "Veo_3.1_quality/movie_trailer/SALTWATER VOWS.mp4"
+        },
+        {
+          "model": "Veo_3.1_quality",
+          "content": "HONEY ON THE TONGUE",
+          "hf_path": "Veo_3.1_quality/movie_trailer/HONEY ON THE TONGUE.mp4"
+        }
+      ]
+    },
+    {
+      "episode": "r02_black_frames",
+      "note": "injected 0.5 s black",
+      "clips": [
+        {
+          "model": "Veo_3.1_quality",
+          "content": "THE ORCHARD BETWEEN US",
+          "hf_path": "Veo_3.1_quality/movie_trailer/THE ORCHARD BETWEEN US.mp4"
+        }
+      ]
+    },
+    {
+      "episode": "r03_frozen_picture",
+      "note": "injected 1.5 s freeze",
+      "clips": [
+        {
+          "model": "Veo_3.1_quality",
+          "content": "THE LONGEST MINUTE",
+          "hf_path": "Veo_3.1_quality/movie_trailer/THE LONGEST MINUTE.mp4"
+        }
+      ]
+    },
+    {
+      "episode": "r04_silence_over_dialogue",
+      "note": "injected 1.5 s mute over speech",
+      "clips": [
+        {
+          "model": "Veo_3.1_quality",
+          "content": "MIDNIGHT LAUGH TRACK",
+          "hf_path": "Veo_3.1_quality/movie_trailer/MIDNIGHT LAUGH TRACK.mp4"
+        }
+      ]
+    },
+    {
+      "episode": "r05_clipped_audio",
+      "note": "injected x12 gain + hard clip",
+      "clips": [
+        {
+          "model": "Veo_3.1_quality",
+          "content": "THE QUIET TRIAL",
+          "hf_path": "Veo_3.1_quality/movie_trailer/THE QUIET TRIAL.mp4"
+        }
+      ]
+    },
+    {
+      "episode": "r06_av_offset_300ms",
+      "note": "injected +300 ms audio delay",
+      "clips": [
+        {
+          "model": "Veo_3.1_quality",
+          "content": "SECOND TAKE",
+          "hf_path": "Veo_3.1_quality/movie_trailer/SECOND TAKE.mp4"
+        }
+      ]
+    },
+    {
+      "episode": "r07_wrong_audio_track",
+      "note": "picture from one clip, speech from another (real dubbing/mux error)",
+      "clips": [
+        {
+          "model": "Veo_3.1_quality",
+          "content": "SALTWATER VOWS",
+          "hf_path": "Veo_3.1_quality/movie_trailer/SALTWATER VOWS.mp4"
+        }
+      ]
+    },
+    {
+      "episode": "r08_regenerated_second_half",
+      "note": "Veo_3.1_quality then Sora_2 for the same prompt, inside one scripted scene",
+      "clips": [
+        {
+          "model": "Veo_3.1_quality",
+          "content": "REDLINE PROTOCOL",
+          "hf_path": "Veo_3.1_quality/movie_trailer/REDLINE PROTOCOL.mp4"
+        },
+        {
+          "model": "Sora_2",
+          "content": "REDLINE PROTOCOL",
+          "hf_path": "Sora_2/movie_trailer/REDLINE PROTOCOL.mp4"
+        }
+      ]
+    },
+    {
+      "episode": "r09_regenerated_insert_shot",
+      "note": "2 s from another model's render of the same prompt, in the middle of one scene",
+      "clips": [
+        {
+          "model": "Veo_3.1_quality",
+          "content": "TIDELINE EVIDENCE",
+          "hf_path": "Veo_3.1_quality/movie_trailer/TIDELINE EVIDENCE.mp4"
+        },
+        {
+          "model": "Sora_2",
+          "content": "TIDELINE EVIDENCE",
+          "hf_path": "Sora_2/movie_trailer/TIDELINE EVIDENCE.mp4"
+        }
+      ]
+    },
+    {
+      "episode": "r10_weaker_model_untouched",
+      "note": "LTX-2 output, no injection; label natural faults after watching",
+      "clips": [
+        {
+          "model": "LTX-2",
+          "content": "MIDNIGHT LAUGH TRACK",
+          "hf_path": "LTX-2/movie_trailer/MIDNIGHT LAUGH TRACK.mp4"
+        }
+      ]
+    }
+  ]
+}

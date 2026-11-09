@@ -1,0 +1,5 @@
+numpy
+opencv-python-headless
+mediapipe>=0.10.14
+streamlit        # only for app.py
+# system dependency: ffmpeg + ffprobe on PATH (apt install ffmpeg / brew install ffmpeg)

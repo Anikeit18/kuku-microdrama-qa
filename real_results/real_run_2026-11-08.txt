@@ -1,0 +1,30 @@
+Real AI-clip test set (microsoft/AVGen-Bench, MIT): evaluate.py output from the user's Windows run, 2026-11-08,
+face detector yunet+mediapipe_crop. Natural labels (real_results/natural_labels.json) not yet merged in this block:
+
+== real  faults flagged 7/8 (as major/blocker 7/8), false alarms 11
+   black_frames                       any 1/1   major+ 1/1
+   frozen_picture                     any 1/1   major+ 1/1
+   silence                            any 1/1   major+ 1/1
+   distorted_audio                    any 1/1   major+ 1/1
+   lip_sync                           any 1/2   major+ 1/2
+   outfit_change/background_change    any 2/2   major+ 2/2
+   r01_clean_3_scenes           REVIEW  caught 0/0  FA 4 ['outfit_change@4.32s (major)', 'background_change@12.72s (major)', 'lip_sync@16.0s (major)', 'lip_sync@0.0s (minor)']
+   r02_black_frames             FAIL    caught 1/1  FA 1 ['background_change@4.52s (major)']
+   r03_frozen_picture           FAIL    caught 1/1  FA 1 ['lip_sync@4.65s (minor)']
+   r04_silence_over_dialogue    FAIL    caught 1/1  FA 0 []
+   r05_clipped_audio            REVIEW  caught 1/1  FA 1 ['background_change@2.08s (major)']
+   r06_av_offset_300ms          REVIEW  caught 1/1  FA 0 []
+   r07_wrong_audio_track        REVIEW  caught 0/1  FA 1 ['background_change@2.64s (major)']
+   r08_regenerated_second_half  FAIL    caught 1/1  FA 1 ['black_frames@6.36s (blocker)']
+   r09_regenerated_insert_shot  REVIEW  caught 1/1  FA 1 ['lip_sync@0.0s (minor)']
+   r10_weaker_model_untouched   PASS    caught 0/0  FA 1 ['black_frames@5.84s (minor)']
+
+After watching: r01 lip_sync @0 s and @16 s are genuine Veo lip-sync faults (true positives, not false alarms);
+black dips in r08 and r10 are deliberate (genuine false alarms); r07 wrong audio confirmed and missed.
+With labels merged: 9/10 faults flagged (8/10 as major/blocker), 9 false alarms
+(6 major/blocker: 4 background_change, 1 outfit_change, 1 black dip; 3 minor).
+
+Earlier runs on the same clips (same day), showing what each fix changed:
+  MediaPipe only, 360 px wide analysis : faces in 0-37% of frames, lip sync judged in 1 window, 0/2 lip faults
+  YuNet + MediaPipe-on-crop            : faces in 14-100%, A/V offset caught; 26 false alarms (17 outfit)
+  + main-face-only / persistent outfit : 11 false alarms (1 outfit)

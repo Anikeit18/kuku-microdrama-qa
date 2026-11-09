@@ -1,0 +1,6 @@
+TITLE: r02_black_frames (real AI clips from microsoft/AVGen-Bench)
+
+SCENE 1 | MOVIE TRAILER: THE ORCHARD BETWEEN US | 00:00.00 - 00:08.00
+PROMPT (Veo_3.1_quality): Four-shot gentle teaser with intimate dialogue and rural ambience. Shot 1: An apple orchard in late afternoon; leaves rustle and distant bees hum as two teens ride bikes past, tires crunching on gravel. Shot 2: Close-up of hands carving initials into a tree, the knife scraping bark; one says, "Promise you won’t forget." Shot 3: Smash cut to a school hallway; lockers slam and footsteps echo as a vo
+[00:00.00 - 00:05.91] SPEAKER: Promise you won’t forget.
+[00:05.91 - 00:08.00] SPEAKER: I’m leaving.

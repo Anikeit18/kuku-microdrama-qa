@@ -1,0 +1,6 @@
+TITLE: r07_wrong_audio_track (real AI clips from microsoft/AVGen-Bench)
+
+SCENE 1 | MOVIE TRAILER: SALTWATER VOWS | 00:00.00 - 00:08.00
+PROMPT (Veo_3.1_quality): Four-shot emotional teaser with natural ambience and a musical swell. Shot 1: A windswept seaside pier at golden hour, waves rolling and gulls calling as two people stand in silence; one says softly, "I came back." Shot 2: Cut to a kitchen morning scene; a kettle clicks off and steam hisses as hands brush accidentally, and the second person laughs under their breath. Shot 3: Smash cut to an argume
+[00:00.00 - 00:04.52] SPEAKER: I came back.
+[00:04.52 - 00:07.58] SPEAKER: You promised me forever.

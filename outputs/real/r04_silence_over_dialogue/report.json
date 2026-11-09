@@ -1,0 +1,89 @@
+{
+  "video": "real_inputs\\r04_silence_over_dialogue.mp4",
+  "script": "real_inputs\\r04_silence_over_dialogue.txt",
+  "verdict": "FAIL",
+  "counts": {
+    "blocker": 1,
+    "major": 0,
+    "minor": 0,
+    "info": 0
+  },
+  "media": {
+    "duration": 8.0,
+    "has_video": true,
+    "has_audio": true,
+    "fps": 25.0,
+    "width": 1280,
+    "height": 720,
+    "audio_rate": 48000,
+    "av_start_offset": 0.0
+  },
+  "face_detector": "yunet+mediapipe_crop",
+  "face_frame_share": 0.665,
+  "shots": [
+    {
+      "start": 0.0,
+      "end": 1.2
+    },
+    {
+      "start": 1.2,
+      "end": 8.0
+    }
+  ],
+  "issues": [
+    {
+      "check": "silence",
+      "start": 0.0,
+      "end": 1.51,
+      "severity": "blocker",
+      "detail": "1.51s of silence while the script has 1.5s of dialogue here",
+      "confidence": "high",
+      "id": 1
+    }
+  ],
+  "lip_sync_windows": [
+    {
+      "start": 0.0,
+      "end": 7.78,
+      "speaker": "SPEAKER",
+      "face_coverage": 0.07,
+      "status": "skipped_no_face"
+    }
+  ],
+  "runtime_s": 11.3,
+  "config": {
+    "analysis_short_side": 480,
+    "black_min_dur": 0.1,
+    "black_pix_th": 0.1,
+    "black_blocker_dur": 0.3,
+    "freeze_noise_db": -72,
+    "freeze_min_dur": 0.8,
+    "freeze_blocker_dur": 1.5,
+    "silence_db": -50,
+    "silence_min_dur": 1.0,
+    "silence_no_script_major": 3.0,
+    "clip_level": 0.95,
+    "clip_ratio": 0.005,
+    "clip_merge_gap": 0.5,
+    "clip_min_dur": 0.3,
+    "spike_db": 10,
+    "cut_threshold": 0.45,
+    "min_shot_dur": 0.4,
+    "bg_cluster_dist": 0.35,
+    "torso_cluster_dist": 0.5,
+    "torso_min_face_h": 0.1,
+    "torso_min_samples": 2,
+    "min_face_frac": 0.004,
+    "glitch_max_dur": 6.0,
+    "dark_shot_v": 30,
+    "lip_min_window": 1.5,
+    "lip_min_face_cov": 0.6,
+    "lip_max_lag": 0.5,
+    "lip_min_corr": 0.3,
+    "lip_offset_flag": 0.2,
+    "lip_static_std": 0.004,
+    "script_tol": 0.75,
+    "llm_provider": null,
+    "llm_model": null
+  }
+}

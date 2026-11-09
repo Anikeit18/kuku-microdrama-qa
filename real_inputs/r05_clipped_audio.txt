@@ -1,0 +1,6 @@
+TITLE: r05_clipped_audio (real AI clips from microsoft/AVGen-Bench)
+
+SCENE 1 | MOVIE TRAILER: THE QUIET TRIAL | 00:00.00 - 00:08.00
+PROMPT (Veo_3.1_quality): Four-shot teaser driven by dialogue beats and sharp room sounds. Shot 1: A courtroom wide shot, muted crowd murmurs and camera shutters; a judge’s gavel strikes with a crisp crack and the room falls silent. Shot 2: Close-up of a witness’s hands twisting a tissue, the paper crinkling loudly in the hush as a lawyer asks, "Did you see his face?" Shot 3: Smash cut to an elevator; fluorescent buzz, the
+[00:00.00 - 00:04.69] SPEAKER: Did you see his face?
+[00:04.69 - 00:06.98] SPEAKER: They’re listening.

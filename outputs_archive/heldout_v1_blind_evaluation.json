@@ -1,0 +1,104 @@
+{
+  "label": "heldout_with_script",
+  "per_check_recall": {
+    "black_frames": "1/1",
+    "frozen_picture": "1/1",
+    "silence": "1/1",
+    "distorted_audio": "1/1",
+    "lip_sync": "3/3",
+    "outfit_change": "1/2",
+    "background_change": "1/1"
+  },
+  "faults_caught": "9/10",
+  "false_alarms_total": 0,
+  "variants": [
+    {
+      "variant": "h01_clean",
+      "verdict": "PASS",
+      "faults": 0,
+      "caught": 0,
+      "false_alarms": 0,
+      "false_alarm_list": []
+    },
+    {
+      "variant": "h02_short_black_0.25s",
+      "verdict": "PASS",
+      "faults": 1,
+      "caught": 1,
+      "false_alarms": 0,
+      "false_alarm_list": []
+    },
+    {
+      "variant": "h03_freeze_1.0s",
+      "verdict": "REVIEW",
+      "faults": 1,
+      "caught": 1,
+      "false_alarms": 0,
+      "false_alarm_list": []
+    },
+    {
+      "variant": "h04_silence_1.5s",
+      "verdict": "FAIL",
+      "faults": 1,
+      "caught": 1,
+      "false_alarms": 0,
+      "false_alarm_list": []
+    },
+    {
+      "variant": "h05_mild_clipping",
+      "verdict": "PASS",
+      "faults": 1,
+      "caught": 1,
+      "false_alarms": 0,
+      "false_alarm_list": []
+    },
+    {
+      "variant": "h06_av_offset_250ms",
+      "verdict": "FAIL",
+      "faults": 1,
+      "caught": 1,
+      "false_alarms": 0,
+      "false_alarm_list": []
+    },
+    {
+      "variant": "h07_audio_early_300ms",
+      "verdict": "FAIL",
+      "faults": 1,
+      "caught": 1,
+      "false_alarms": 0,
+      "false_alarm_list": []
+    },
+    {
+      "variant": "h08_outfit_change_rooftop",
+      "verdict": "PASS",
+      "faults": 1,
+      "caught": 0,
+      "false_alarms": 0,
+      "false_alarm_list": []
+    },
+    {
+      "variant": "h09_ryan_outfit_change",
+      "verdict": "REVIEW",
+      "faults": 1,
+      "caught": 1,
+      "false_alarms": 0,
+      "false_alarm_list": []
+    },
+    {
+      "variant": "h10_background_glitch_office",
+      "verdict": "REVIEW",
+      "faults": 1,
+      "caught": 1,
+      "false_alarms": 0,
+      "false_alarm_list": []
+    },
+    {
+      "variant": "h11_mouth_static_rooftop",
+      "verdict": "REVIEW",
+      "faults": 1,
+      "caught": 1,
+      "false_alarms": 0,
+      "false_alarm_list": []
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+TITLE: r03_frozen_picture (real AI clips from microsoft/AVGen-Bench)
+
+SCENE 1 | MOVIE TRAILER: THE LONGEST MINUTE | 00:00.00 - 00:08.00
+PROMPT (Veo_3.1_quality): Four-shot teaser with repeated audio motif and subtle variation. Shot 1: A café bell jingles as the door opens; a clock ticks loudly in an otherwise quiet room and a voice says, "This feels familiar." Shot 2: Close-up of coffee spilling; it splashes and drips in slow motion as the same line repeats, slightly overlapping like an echo. Shot 3: Smash cut to a crosswalk; the walk signal beeps, then gl
+[00:00.08 - 00:04.65] SPEAKER: This feels familiar.
+[00:04.65 - 00:07.14] SPEAKER: Not again.

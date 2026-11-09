@@ -1,0 +1,96 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pre-promo QA gate for AI microdramas</title>
+<style>
+:root{--ink:#14171f;--muted:#5b6474;--line:#e3e6ec;--bg:#f7f8fa;--acc:#3b4cca;--red:#c62828;--amb:#d9730d;--grn:#2e7d32}
+*{box-sizing:border-box}body{margin:0;font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:#fff}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+header{background:var(--ink);color:#fff;padding:64px 0 48px}
+header h1{font-size:40px;line-height:1.15;margin:0 0 12px;letter-spacing:-.5px}
+header p{color:#c9cfdb;max-width:720px;font-size:18px;margin:0 0 24px}
+.btn{display:inline-block;padding:10px 16px;border:1px solid #4a5163;border-radius:8px;color:#fff;text-decoration:none;margin:0 8px 8px 0}
+.btn.primary{background:#fff;color:var(--ink);font-weight:600}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:32px}
+.stat{border-top:2px solid #4a5163;padding-top:10px}.stat b{display:block;font-size:30px}.stat span{color:#c9cfdb;font-size:14px}
+section{padding:48px 0;border-bottom:1px solid var(--line)}h2{font-size:26px;margin:0 0 8px}
+.lead{color:var(--muted);max-width:760px;margin:0 0 24px}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.step{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px;font-size:14px}
+.step b{display:block;margin-bottom:4px}
+table{border-collapse:collapse;width:100%;font-size:14px}td,th{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:600}.hit{color:var(--grn)}.miss{color:var(--red);font-weight:600}.muted{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.card{display:flex;flex-direction:column;gap:4px;border:1px solid var(--line);border-radius:10px;padding:14px;text-decoration:none;color:var(--ink);font-size:14px}
+.card:hover{border-color:var(--acc)}.card span:last-child{color:var(--muted)}
+.v{align-self:flex-start;font-size:11px;font-weight:700;color:#fff;border-radius:4px;padding:2px 6px}
+.v-fail{background:var(--red)}.v-review{background:var(--amb)}.v-pass{background:var(--grn)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:32px}ul{padding-left:18px}
+footer{padding:32px 0;color:var(--muted);font-size:13px}
+@media(max-width:800px){.stats,.flow,.two{grid-template-columns:1fr 1fr}header h1{font-size:30px}}
+</style></head><body>
+<header><div class="wrap">
+<h1>Catch broken AI episodes before they become broken promos</h1>
+<p>A QA gate that runs on each AI-generated microdrama episode and its screenplay, just before promo cutting. It flags black frames,
+frozen picture, unexpected silence, distorted audio, outfit and background changes inside a scene, and broken lip sync, with
+timestamps and frames, then gives a pass / review / fail verdict.</p>
+<a class="btn" href="solution_doc.pdf" target="_blank">Solution doc (PDF)</a><a class="btn" href="https://github.com/Anikeit18/kuku-microdrama-qa" target="_blank">GitHub repo</a>
+<div class="stats">
+<div class="stat"><b>9/10</b><span>faults flagged on 10 real AI-video episodes</span></div>
+<div class="stat"><b>2</b><span>real lip-sync faults in Veo 3.1 output found by the tool, confirmed by eye</span></div>
+<div class="stat"><b>9</b><span>false alarms on real clips (down from 26 during tuning)</span></div>
+<div class="stat"><b>$0</b><span>runs locally: ffmpeg + OpenCV + MediaPipe, no paid API</span></div>
+</div></div></header>
+
+<section><div class="wrap">
+<h2>The problem</h2>
+<p class="lead">AI pipelines generate each shot separately, then stitch picture, voice and lip sync together. Those seams produce
+exactly these defects. When one reaches a promo, it burns paid reach at the moment a new viewer decides whether to watch.
+Today an editor has to watch every episode to catch them.</p>
+<div class="flow">
+<div class="step"><b>1 · Input</b>Episode video + timestamped screenplay</div>
+<div class="step"><b>2 · Technical</b>ffmpeg: black, freeze, silence, clipping, A/V start offset</div>
+<div class="step"><b>3 · Continuity</b>Shots → background colour (people masked) and clothing under the main face, per scripted scene</div>
+<div class="step"><b>4 · Lip sync</b>YuNet finds faces → MediaPipe mouth opening on a face crop ↔ speech loudness, ±0.5 s</div>
+<div class="step"><b>5 · Verdict</b>Blocker → FAIL · major → REVIEW · else PASS. Report with frames</div>
+</div>
+<p class="muted" style="margin-top:16px">The screenplay says what's <i>intended</i>: a scripted fade isn't an error, silence over a
+scripted line is a blocker, a scene is one place with a fixed cast. An optional vision LLM (Gemini or any OpenAI-compatible model,
+swapped with an environment variable) can give a second opinion on continuity flags. It can only downgrade a flag.</p>
+</div></section>
+
+<section><div class="wrap">
+<h2>Results on real AI video</h2>
+<p class="lead">10 episodes built from microsoft/AVGen-Bench (MIT): Veo 3.1, Sora 2, LTX-2 outputs with native speech. Technical faults were injected at known times. Continuity breaks are
+real: two models' renders of the same prompt cut into one scene. Every flag was then checked by watching the clips.</p>
+<table><tr><th>Episode</th><th>Fault</th><th>Result</th></tr><tr><td>r02</td><td>Black frames (injected 0.5 s)</td><td class='hit'>caught (blocker)</td></tr><tr><td>r03</td><td>Frozen picture (injected 1.5 s)</td><td class='hit'>caught (blocker)</td></tr><tr><td>r04</td><td>Silence over dialogue (injected 1.5 s)</td><td class='hit'>caught (blocker)</td></tr><tr><td>r05</td><td>Clipped audio (injected)</td><td class='hit'>caught (major)</td></tr><tr><td>r06</td><td>A/V offset 300 ms (injected)</td><td class='hit'>caught (major)</td></tr><tr><td>r07</td><td>Wrong audio track (injected)</td><td class='miss'>MISSED: mouth could not be measured on these faces</td></tr><tr><td>r08</td><td>Regenerated second half: other model, same prompt (real renders)</td><td class='hit'>caught (major)</td></tr><tr><td>r09</td><td>Regenerated 2 s insert shot (real renders)</td><td class='hit'>caught (major)</td></tr><tr><td>r01 @0 s</td><td>Lip-sync mismatch in Veo output, found by the tool, confirmed by watching</td><td class='hit'>caught (minor)</td></tr><tr><td>r01 @16 s</td><td>Lip-sync mismatch in Veo output, found by the tool, confirmed by watching</td><td class='hit'>caught (major)</td></tr></table>
+<div class="two" style="margin-top:28px">
+<div><h3>False alarms (9)</h3><ul><li><b>4×</b> background_change on trailer clips whose single prompt covers several shots/places <span class='muted'>(major)</span></li><li><b>1×</b> outfit_change <span class='muted'>(major)</span></li><li><b>2×</b> deliberate dip to black not marked in the prompt-derived script <span class='muted'>(1 blocker, 1 minor)</span></li><li><b>2×</b> weak lip-sync mismatch <span class='muted'>(minor)</span></li></ul></div>
+<div><h3>What testing on real clips changed</h3>
+<table><tr><th>Version</th><th>Faces seen</th><th>False alarms</th><th>Lip-sync faults caught</th></tr><tr><td>MediaPipe only, frames 360 px wide</td><td>almost none</td><td>9</td><td>0/2 injected</td></tr><tr><td>MediaPipe only, frames 480 px on short side</td><td>0-37%</td><td>10</td><td>0/2 injected</td></tr><tr><td>YuNet finds faces, MediaPipe on face crop</td><td>14-100%</td><td>26</td><td>1/2 injected</td></tr><tr><td>outfit judged on main face only, must persist, 1 flag/scene</td><td>14-100%</td><td>11</td><td>1/2 injected</td></tr><tr><td>after watching: 2 flags confirmed as real Veo lip-sync faults</td><td>14-100%</td><td>9</td><td>1/2 injected + 2/2 natural</td></tr></table></div>
+</div>
+<h3 style="margin-top:28px">Open the real reports</h3><div class="grid"><a class="card" href="reports/real/r01_clean_3_scenes.html" target="_blank"><span class="v v-review">REVIEW</span><b>r01_clean_3_scenes</b><span>3 Veo clips as 3 scenes. Tool found 2 real lip-sync faults in Veo&#x27;s output (confirmed by watching).</span></a><a class="card" href="reports/real/r02_black_frames.html" target="_blank"><span class="v v-fail">FAIL</span><b>r02_black_frames</b><span>Injected 0.5 s black.</span></a><a class="card" href="reports/real/r03_frozen_picture.html" target="_blank"><span class="v v-fail">FAIL</span><b>r03_frozen_picture</b><span>Injected 1.5 s freeze.</span></a><a class="card" href="reports/real/r04_silence_over_dialogue.html" target="_blank"><span class="v v-fail">FAIL</span><b>r04_silence_over_dialogue</b><span>Injected 1.5 s mute over speech.</span></a><a class="card" href="reports/real/r05_clipped_audio.html" target="_blank"><span class="v v-review">REVIEW</span><b>r05_clipped_audio</b><span>Injected clipping.</span></a><a class="card" href="reports/real/r06_av_offset_300ms.html" target="_blank"><span class="v v-review">REVIEW</span><b>r06_av_offset_300ms</b><span>Injected 300 ms audio delay.</span></a><a class="card" href="reports/real/r07_wrong_audio_track.html" target="_blank"><span class="v v-review">REVIEW</span><b>r07_wrong_audio_track</b><span>Picture of one clip, speech of another (missed).</span></a><a class="card" href="reports/real/r08_regenerated_second_half.html" target="_blank"><span class="v v-fail">FAIL</span><b>r08_regenerated_second_half</b><span>Veo then Sora render of the same prompt in one scene.</span></a><a class="card" href="reports/real/r09_regenerated_insert_shot.html" target="_blank"><span class="v v-review">REVIEW</span><b>r09_regenerated_insert_shot</b><span>2 s of another model&#x27;s render inside the scene.</span></a><a class="card" href="reports/real/r10_weaker_model_untouched.html" target="_blank"><span class="v v-pass">PASS</span><b>r10_weaker_model_untouched</b><span>LTX-2 output, untouched.</span></a></div>
+</div></section>
+
+<section><div class="wrap">
+<h2>Results on the synthetic seeded set</h2>
+<p class="lead">Cartoon episodes with exactly timed faults. Thresholds were tuned on the tuning set; the held-out set was built
+afterwards with smaller faults. Without the screenplay, continuity detection mostly fails, which is why the script is an input.</p>
+<table><tr><th>Run</th><th>Faults flagged</th><th>As major/blocker</th><th>False alarms</th></tr><tr><td>tuning with script</td><td>12/12</td><td>12/12</td><td>0</td></tr><tr><td>heldout with script</td><td>10/10</td><td>9/10</td><td>0</td></tr><tr><td>tuning no script</td><td>9/12</td><td>7/12</td><td>22</td></tr><tr><td>heldout no script</td><td>8/10</td><td>6/10</td><td>22</td></tr></table>
+
+</div></section>
+
+<section><div class="wrap two">
+<div><h2>Where it fails</h2><ul>
+<li>Wrong audio track missed: faces on screen, but the mouth couldn't be measured at those angles.</li>
+<li>Lip sync compares loudness with mouth opening. It can't tell if the wrong words are mouthed.</li>
+<li>Intent comes from the script. Unscripted stylistic fades and unlisted locations get flagged.</li>
+<li>Outfit = colour: a same-colour swap is missed. Clips were 8–12 s; next step is ~20 real episodes labelled by an editor.</li></ul></div>
+<div><h2>How a team would know it works</h2><ul>
+<li>Share of flags the editor marks real (target &gt;60%)</li>
+<li>Blocker defects later found in published promos (target ≈0)</li>
+<li>Editor minutes per episode spent on technical review</li>
+<li>Regenerations moved before promo cutting, not after</li></ul></div>
+</div></section>
+<footer><div class="wrap">Kuku AI Generalist assignment · Problem 3 · Real clips: microsoft/AVGen-Bench (MIT license).
+Synthetic episodes generated for testing. No Kuku input-pack material is published here.</div></footer>
+</body></html>
