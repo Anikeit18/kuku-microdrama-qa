@@ -50,15 +50,17 @@ story = [
     Spacer(1, 2),
 
     p("1. Problem and why it matters", H),
-    p("<b>Who:</b> the promo editor, and the QA person before them, who cut clips from new AI-generated episodes every week. "
-      "<b>Step:</b> just before an episode goes to promo cutting. <b>Output:</b> a verdict with timestamped flags for black frames, "
-      "frozen picture, unexpected silence, distorted audio, outfit or background changes inside a scene, and broken lip sync. Nothing else. "
-      "<b>Why it's real:</b> AI pipelines generate each shot separately and then stitch picture, voice and lip sync together, and those "
-      "seams are where these defects appear. Trade coverage lists lip-sync mismatches as a common complaint about AI micro-dramas (Pandaily), "
+    p("<b>Where this came from:</b> as a growth intern at Seekho I worked closely with editors and other teams, and saw how "
+      "often AI-generated video needs round after round of iterations, and how some defects still slip through unflagged. A strong "
+      "promo pulls viewers in, but if the episode itself is broken, retention suffers, the acquisition spend is wasted, and the "
+      "company's LTV/CAC ratio takes the hit. So I placed the check <b>just before promo</b>, the last cheap point to catch a defect. "
+      "<b>Who / output:</b> the editor or QA person who signs off new AI episodes every week gets a pass / review / fail verdict with "
+      "timestamped flags for black frames, frozen picture, unexpected silence, distorted audio, outfit or background changes inside a "
+      "scene, and broken lip sync. Nothing else. "
+      "<b>It's real:</b> AI pipelines generate each shot separately and stitch picture, voice and lip sync together, and those seams "
+      "are where these defects appear. Trade coverage lists lip-sync mismatches as a common complaint about AI micro-dramas (Pandaily), "
       "and a 2026 short-drama generation paper names production QC that needs extensive manual review as unsolved (arXiv 2605.22144). "
-      "My own test proved it: <b>2 of the 10 real Veo 3.1 clips I tested had lip-sync faults that nobody planted</b>, and the tool found "
-      "both. <b>Why this over P1/P2:</b> a promo is paid reach. A frozen frame or out-of-sync line inside an ad burns spend at the moment "
-      "a new viewer decides. This gate sits upstream of Problem 1, so every promo tool after it benefits."),
+      "My own test showed it too: <b>2 of the 10 real Veo 3.1 clips had lip-sync faults nobody planted</b>, and the tool found both."),
 
     p("2. Assumptions", H),
     *bl(["Inputs are the final episode file and the timestamped screenplay used to make it (scene headings with time ranges; "
@@ -118,13 +120,17 @@ story = [
       "editor minutes per episode on technical review; regenerations moved before promo cutting. Every editor decision is kept as a "
       "label to re-tune thresholds per show style."),
 
-    p("7. AI tools used, and where they got it wrong", H),
-    p("Built with Claude (planning, code, test sets, this doc). I reviewed every decision and threshold and ran everything on my "
-      "machine. Where the AI got it wrong, each found by running the tool and reading its output: ffmpeg's default freeze "
-      "threshold called a clean talking head 'frozen' 15 times; its first loudness-spike detector flagged almost every syllable; it "
-      "wrote MediaPipe code for an API that no longer ships; its scoring script counted catches as false alarms; a Windows "
-      "file-encoding 'fix' broke the test generator; it analysed frames at 360 px wide, too small for faces in landscape clips; and it "
-      "assumed MediaPipe would find cinematic faces, which the real clips disproved."),
+    p("7. How I built it, and where AI got it wrong", H),
+    p("Problem first, then the solution. From my research background in ML and LLMs I knew that spotting these flaws needs "
+      "pretrained, CNN-based vision models rather than an LLM reading frames: here YuNet finds faces, MediaPipe's face landmarker "
+      "measures mouth movement, and ffmpeg handles the technical checks. I took publicly available AI-generated videos and injected "
+      "known flaws into them to build a labelled test set. Then I built the backend (the detection pipeline), the frontend (a live demo "
+      "where you upload an episode and watch the checks run) and the supporting infra with an AI coding assistant (Claude), testing "
+      "each piece on the prepared inputs and reviewing every threshold myself. <b>Where the AI got it wrong</b>, each caught by "
+      "running the tool and reading its output: ffmpeg's default freeze threshold called a clean talking head 'frozen' 15 times; it "
+      "first analysed frames too small for faces in landscape clips; it assumed MediaPipe alone would find faces in cinematic shots, "
+      "which the real clips disproved (faces in 0–37% of frames until I switched to YuNet); and its first outfit check raised 17 false "
+      "alarms on real footage until it was limited to the main face and to changes that persist."),
 ]
 
 out = os.path.join(ROOT, "docs", "solution_doc.pdf")
